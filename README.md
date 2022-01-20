@@ -24,3 +24,9 @@ To run QM9 experiment for graph regression tasks, run the main_qm9_experiment.py
 ```
 python main_scripts/main_qm9_experiment.py --config=configs/qm9_config.json
 ```
+
+## Experiemtal Results
+All the experimental results in the paper can be downloaded from the following Dropbox link.
+```
+https://www.dropbox.com/sh/pq77pmiqm73lkb9/AADTVJiSGT75nwVPgAmEELy5a?dl=1
+```
