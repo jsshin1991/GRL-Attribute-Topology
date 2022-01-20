@@ -33,11 +33,6 @@ class Trainer(object):
         Trains for the num of epochs in the config.
         :return:
         """
-
-        # for QM9 continue learning (temp / should be deleted)
-        # self.model_wrapper.load_by_path(path='/data/jsshin/experiments/QM9QM92021_10_22_22_10_35/checkpoint/best.tar')
-        # self.cur_epoch = 136
-
         for cur_epoch in range(self.cur_epoch, self.config.num_epochs, 1):
             # train epoch
             train_acc, train_loss = self.train_epoch(cur_epoch)
