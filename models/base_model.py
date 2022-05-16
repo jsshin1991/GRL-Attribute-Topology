@@ -47,7 +47,7 @@ class BaseModel(nn.Module):
         # Second part
         self.fc_layers = nn.ModuleList()
         self.ph_fc_layers = nn.ModuleList()
-        if use_new_suffix:
+        if use_new_suffix:  # use jumping knowledge network scheme
             for output_features in block_features:
                 # each block's output will be pooled (thus have 2*output_features), and pass through a fully connected
                 fc = modules.FullyConnected(2*output_features, self.config.num_classes, activation_fn=None)
@@ -58,11 +58,14 @@ class BaseModel(nn.Module):
                 ph_fc_layers = nn.Linear(in_features=block_features[-1], out_features=2 * block_features[-1])
                 self.ph_fc_layers.append(ph_fc_layers)
 
-        else:  # use old suffix
-            # Sequential fc layers
-            self.fc_layers.append(modules.FullyConnected(2*block_features[-1], 512))
-            self.fc_layers.append(modules.FullyConnected(512, 256))
-            self.fc_layers.append(modules.FullyConnected(256, self.config.num_classes, activation_fn=None))
+        else:
+            fc = modules.FullyConnected(2*block_features[-1], self.config.num_classes, activation_fn=None)
+            self.fc_layers.append(fc)
+            ph_fc_layers = nn.Linear(in_features=int(0.5 * block_features[-1]), out_features=block_features[-1])
+            self.ph_fc_layers.append(ph_fc_layers)
+            self.ph_fc_layers.append(nn.ReLU())
+            ph_fc_layers = nn.Linear(in_features=block_features[-1], out_features=2 * block_features[-1])
+            self.ph_fc_layers.append(ph_fc_layers)
 
         self.idx = 0
 
