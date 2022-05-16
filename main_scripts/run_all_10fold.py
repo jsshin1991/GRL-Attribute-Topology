@@ -1,7 +1,7 @@
 import os
 
 datasets = ['MUTAG', 'PTC', 'PROTEINS', 'NCI1', 'NCI109', 'IMDBMULTI', 'IMDBBINARY', 'ENZYMES']
-run_command = 'python main_10fold_experiment.py '
+run_command = 'python main_scripts/main_10fold_experiment.py '
 args1 = '--config=configs/10fold_config.json '
 args2 = '--dataset_name=%s'
 
