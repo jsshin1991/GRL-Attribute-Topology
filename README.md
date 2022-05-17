@@ -30,3 +30,6 @@ All the experimental results in the paper can be downloaded from the following D
 ```
 https://www.dropbox.com/sh/pq77pmiqm73lkb9/AADTVJiSGT75nwVPgAmEELy5a?dl=1
 ```
+
+## Acknowledgement
+During the implementation we base our code on [Provably Powerful Graph Networks](https://github.com/hadarser/ProvablyPowerfulGraphNetworks_torch) by Haggai Maron et al and [Graph Filtration Learning](https://github.com/c-hofer/graph_filtration_learning) by Christoph D. Hofer et al. Many thanks to these authors for their great work. 
